@@ -34,3 +34,8 @@ LED:
 
    - [pingo_parts_toggle.py](pingo_parts_toggle.py)
    - [pingo_parts_record.py](pingo_parts_record.py)
+
+
+## See also
+
+http://rpitips.com/python-libraries-rpi-gpio/
