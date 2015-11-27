@@ -20,6 +20,10 @@ LED:
 
 - with interrupts: ToDo
 
+### pigpio
+
+### wiringpi
+
 ### Pingo
 
 #### Pins
@@ -39,3 +43,4 @@ LED:
 ## See also
 
 http://rpitips.com/python-libraries-rpi-gpio/
+
