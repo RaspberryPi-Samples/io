@@ -19,7 +19,7 @@ def main():
 
     print(btn_pin.state)
 
-    while(btn_pin.state == "LOW"):
+    while(btn_pin.state == pingo.LOW):
         led_pin.hi()
         sleep(1)
         led_pin.lo()
