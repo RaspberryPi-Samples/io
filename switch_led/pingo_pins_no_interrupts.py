@@ -3,8 +3,8 @@
 
 import atexit
 from time import sleep
-import RPi.GPIO as GPIO
 import pingo
+import RPi.GPIO as GPIO # only for warnings and cleanup
 
 def main():
     atexit.register(GPIO.cleanup)
@@ -28,6 +28,6 @@ def main():
     print(btn_pin.state)
 
     board.cleanup()
-  
+
 if __name__ == "__main__":
     main()
