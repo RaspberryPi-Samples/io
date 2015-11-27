@@ -16,12 +16,21 @@ LED:
 
 ### RPi.GPIO
 
-without interrupts
+- without interrupts: [RPi_GPIO_no_interrupts.py](RPi_GPIO_no_interrupts.py)
 
-with interrupts (ToDo)
+- with interrupts: ToDo
 
 ### Pingo
 
 #### Pins
 
+ - without interrupts: [pingo_pins_no_interrupts.py](pingo_pins_no_interrupts.py)
+
+ - with interrupts: ToDo
+
 #### Parts
+
+ - with interrupts
+
+   - [pingo_parts_toggle.py](pingo_parts_toggle.py)
+   - [pingo_parts_record.py](pingo_parts_record.py)
