@@ -117,8 +117,8 @@ class App(object):
         self.push_button.set_callback_pressed_long(self.on_push_button_pressed_long)
         self.push_button.set_callback_released(self.on_push_button_released_short)
                 
-        self.recording = False
-        self.global_state = True
+        self.recording = False    # recording is set when recording mode is on
+        self.global_state = False # global_state is set when application is "powered on"
 
     def loop(self):
         self.init_led_and_switch()      
@@ -144,19 +144,35 @@ class App(object):
 
     def on_push_button_pressed_long(self):
         logger.info("push button pressed long")
+        
+        # In case we stop the system even when we're still recording
+        if self.recording:
+            self.led.stop() # stop blinking
+            self.stop_recording()
+            self.recording = False
+            time.sleep(0.5)  # wait the thread closure. Need to be reviewed
+            
+            
         self.global_state = not self.global_state
         self._update_led()
 
     def on_push_button_released_short(self):
         logger.info("push button released")
-        self.recording = not self.recording
-
-        if self.recording:
-            self.led.blink(times=0, on_delay=0.2, off_delay=0.8) # blink forever
-            self.start_recording()
+        
+        if self.global_state:
+            logger.info("short push and system was ON")
+            self.recording = not self.recording
+            
+            if self.recording:
+                self.led.blink(times=0, on_delay=0.2, off_delay=0.8) # blink forever
+                self.start_recording()
+            else:
+                self.led.stop() # stop blinking
+                self.stop_recording()
+            
         else:
-            self.led.stop() # stop blinking
-            self.stop_recording()
+            logger.info("short push and system was off")
+      
                  
     def start_recording(self):
         logger.info("start recording")
