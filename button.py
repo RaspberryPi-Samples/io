@@ -20,7 +20,7 @@ class PushButton(object):
     def _test_pin_instance(self):
         if not isinstance(self.pin.board, pingo.ghost.ghost.GhostBoard):
             raise(NotImplementedError('pin from a GhostBoard is required'))
-        elif not isinstance(self.pin, pingo.DigitalPin):
+        elif not isinstance(self.pin, pingo.board.DigitalPin):
             raise(NotImplementedError('DigitalPin is required'))                
 
     def press(self):
